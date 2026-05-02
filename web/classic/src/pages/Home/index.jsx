@@ -79,6 +79,18 @@ const providerIcons = [
   { name: 'Xinference', icon: <Xinference.Color size={38} /> },
 ];
 
+const routingRows = [
+  { node: 'GPT-4o', provider: 'OpenAI', latency: '142ms' },
+  { node: 'Claude 3.5', provider: 'Anthropic', latency: '198ms' },
+  { node: 'Gemini Pro', provider: 'Google', latency: '167ms' },
+  { node: 'DeepSeek V3', provider: 'DeepSeek', latency: '88ms' },
+];
+
+const routingFooter = [
+  { value: '40+', label: 'Providers' },
+  { value: '200+', label: 'Models' },
+];
+
 const Home = () => {
   const { t, i18n } = useTranslation();
   const [statusState] = useContext(StatusContext);
@@ -104,7 +116,6 @@ const Home = () => {
       setHomePageContent(content);
       localStorage.setItem('home_page_content', content);
 
-      // 如果内容是 URL，则发送主题模式
       if (data.startsWith('https://')) {
         const iframe = document.querySelector('iframe');
         if (iframe) {
@@ -171,91 +182,121 @@ const Home = () => {
           <section className='home-hero'>
             <div className='home-grid-bg' />
             <div className='home-glow' />
-            <div className='home-hero-inner'>
-              <div className='home-badge'>{t('AI 模型聚合网关')}</div>
+            <div className='home-hero-shell'>
+              {/* Left copy column */}
+              <div className='home-hero-copy'>
+                <div className='home-badge'>{t('AI 模型聚合网关')}</div>
 
-              <h1 className='home-title'>
-                <span>{t('统一的')}</span>
-                <span>{t('大模型接口网关')}</span>
-              </h1>
+                <h1 className='home-title'>
+                  <span>{t('统一的')}</span>
+                  <span>{t('大模型接口网关')}</span>
+                </h1>
 
-              <p className='home-subtitle'>
-                {t('更好的价格，更好的稳定性，只需要将模型基址替换为：')}
-              </p>
+                <p className='home-subtitle'>
+                  {t('更好的价格，更好的稳定性，只需要将模型基址替换为：')}
+                </p>
 
-              <div className='home-base-url-input'>
-                <div className='home-base-url-value' title={serverAddress}>
-                  {serverAddress}
-                </div>
-                <div className='home-base-url-path'>/v1/chat/completions</div>
-                <Button
-                  type='primary'
-                  onClick={handleCopyBaseURL}
-                  icon={<IconCopy />}
-                  className='home-base-url-copy'
-                  aria-label={t('复制')}
-                >
-                  {t('复制')}
-                </Button>
-              </div>
-
-              <div className='home-actions'>
-                <Link className='home-auth-link' to='/console'>
+                <div className='home-base-url-input'>
+                  <div className='home-base-url-value' title={serverAddress}>
+                    {serverAddress}
+                  </div>
+                  <div className='home-base-url-path'>/v1/chat/completions</div>
                   <Button
-                    theme='solid'
                     type='primary'
-                    size={isMobile ? 'default' : 'large'}
-                    className='home-auth-btn home-auth-btn-login'
-                    icon={<IconPlay />}
+                    onClick={handleCopyBaseURL}
+                    icon={<IconCopy />}
+                    className='home-base-url-copy'
+                    aria-label={t('复制')}
                   >
-                    {t('获取密钥')}
+                    {t('复制')}
                   </Button>
-                </Link>
-                {isDemoSiteMode && statusState?.status?.version ? (
-                  <Button
-                    size={isMobile ? 'default' : 'large'}
-                    className='home-auth-btn home-auth-btn-register'
-                    icon={<IconGithubLogo />}
-                    onClick={() =>
-                      window.open(
-                        'https://github.com/QuantumNous/new-api',
-                        '_blank',
-                      )
-                    }
-                  >
-                    {statusState.status.version}
-                  </Button>
-                ) : (
-                  docsLink && (
+                </div>
+
+                <div className='home-auth-actions'>
+                  <Link className='home-auth-link' to='/console'>
+                    <Button
+                      theme='solid'
+                      type='primary'
+                      size={isMobile ? 'default' : 'large'}
+                      className='home-auth-btn home-auth-btn-login'
+                      icon={<IconPlay />}
+                    >
+                      {t('获取密钥')}
+                    </Button>
+                  </Link>
+                  {isDemoSiteMode && statusState?.status?.version ? (
                     <Button
                       size={isMobile ? 'default' : 'large'}
                       className='home-auth-btn home-auth-btn-register'
-                      icon={<IconFile />}
-                      onClick={() => window.open(docsLink, '_blank')}
+                      icon={<IconGithubLogo />}
+                      onClick={() =>
+                        window.open(
+                          'https://github.com/QuantumNous/new-api',
+                          '_blank',
+                        )
+                      }
                     >
-                      {t('文档')}
+                      {statusState.status.version}
                     </Button>
-                  )
-                )}
+                  ) : (
+                    docsLink && (
+                      <Button
+                        size={isMobile ? 'default' : 'large'}
+                        className='home-auth-btn home-auth-btn-register'
+                        icon={<IconFile />}
+                        onClick={() => window.open(docsLink, '_blank')}
+                      >
+                        {t('文档')}
+                      </Button>
+                    )
+                  )}
+                </div>
+
+                <div className='home-provider-section'>
+                  <div className='home-provider-title'>
+                    {t('支持众多的大模型供应商')}
+                  </div>
+                  <div className='home-provider-grid'>
+                    {providerIcons.map((provider) => (
+                      <div
+                        className='home-provider-item'
+                        key={provider.name}
+                        aria-label={provider.name}
+                        title={provider.name}
+                      >
+                        {provider.icon}
+                      </div>
+                    ))}
+                    <div className='home-provider-more'>30+</div>
+                  </div>
+                </div>
               </div>
 
-              <div className='home-provider-section'>
-                <div className='home-provider-title'>
-                  {t('支持众多的大模型供应商')}
+              {/* Right routing panel */}
+              <div className='home-routing-panel'>
+                <div className='home-routing-panel-header'>
+                  <span />
+                  <span />
+                  <span />
                 </div>
-                <div className='home-provider-grid'>
-                  {providerIcons.map((provider) => (
-                    <div
-                      className='home-provider-item'
-                      key={provider.name}
-                      aria-label={provider.name}
-                      title={provider.name}
-                    >
-                      {provider.icon}
+                <div className='home-routing-grid'>
+                  {routingRows.map((row) => (
+                    <div className='home-routing-row' key={row.node}>
+                      <span className='home-routing-node'>{row.node}</span>
+                      <div className='home-routing-line' />
+                      <span className='home-routing-status'>{row.latency}</span>
                     </div>
                   ))}
-                  <div className='home-provider-more'>30+</div>
                 </div>
+                <div className='home-routing-footer'>
+                  {routingFooter.map((item) => (
+                    <div key={item.label}>
+                      <strong>{item.value}</strong>
+                      <span>{item.label}</span>
+                    </div>
+                  ))}
+                </div>
+                <div className='home-scroll-hint' />
               </div>
             </div>
           </section>
