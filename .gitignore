@@ -35,3 +35,14 @@ data/
 .test
 token_estimator_test.go
 skills-lock.json
+
+node_modules/
+dist/
+.env
+.env.*
+package-lock.json
+pnpm-lock.yaml
+yarn.lock
+.codex
+web/classic/node_modules/
+web/classic/dist/
