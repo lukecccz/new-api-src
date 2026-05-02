@@ -1,3 +1,4 @@
+import { FaLinkedin } from 'react-icons/fa';
 /*
 Copyright (C) 2025 QuantumNous
 
@@ -94,7 +95,6 @@ import {
   SiGitlab,
   SiGoogle,
   SiKeycloak,
-  SiLinkedin,
   SiNextcloud,
   SiNotion,
   SiOkta,
@@ -509,7 +509,7 @@ const oauthProviderIconMap = {
   google: SiGoogle,
   discord: SiDiscord,
   facebook: SiFacebook,
-  linkedin: SiLinkedin,
+  linkedin: FaLinkedin,
   x: SiX,
   twitter: SiX,
   slack: SiSlack,
