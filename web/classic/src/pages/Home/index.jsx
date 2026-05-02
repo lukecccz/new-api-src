@@ -167,50 +167,45 @@ const Home = () => {
         isMobile={isMobile}
       />
       {homePageContentLoaded && homePageContent === '' ? (
-        <div className='classic-home-shell'>
-          <div className='classic-home-aura classic-home-aura-left' />
-          <div className='classic-home-aura classic-home-aura-right' />
+        <div className='home-page'>
+          <section className='home-hero'>
+            <div className='home-grid-bg' />
+            <div className='home-glow' />
+            <div className='home-hero-inner'>
+              <div className='home-badge'>{t('AI 模型聚合网关')}</div>
 
-          <section className='classic-home-hero'>
-            <div className='classic-home-hero-copy'>
-              <h1>
+              <h1 className='home-title'>
                 <span>{t('统一的')}</span>
                 <span>{t('大模型接口网关')}</span>
               </h1>
-              <p className='classic-home-subtitle'>
-                {t(
-                  '统一接入 OpenAI、Claude、Gemini、DeepSeek 等主流模型，提供高可用路由、统一鉴权、用量统计与成本控制',
-                )}
+
+              <p className='home-subtitle'>
+                {t('更好的价格，更好的稳定性，只需要将模型基址替换为：')}
               </p>
 
-              <div className='classic-home-basebar'>
-                <div
-                  className='classic-home-basebar-value'
-                  title={serverAddress}
-                >
+              <div className='home-base-url-input'>
+                <div className='home-base-url-value' title={serverAddress}>
                   {serverAddress}
                 </div>
-                <div className='classic-home-basebar-endpoint'>
-                  /v1/chat/completions
-                </div>
+                <div className='home-base-url-path'>/v1/chat/completions</div>
                 <Button
                   type='primary'
                   onClick={handleCopyBaseURL}
                   icon={<IconCopy />}
-                  className='classic-home-copy-btn'
+                  className='home-base-url-copy'
                   aria-label={t('复制')}
                 >
                   {t('复制')}
                 </Button>
               </div>
 
-              <div className='classic-home-actions'>
-                <Link to='/console'>
+              <div className='home-actions'>
+                <Link className='home-auth-link' to='/console'>
                   <Button
                     theme='solid'
                     type='primary'
                     size={isMobile ? 'default' : 'large'}
-                    className='classic-home-primary-btn'
+                    className='home-auth-btn home-auth-btn-login'
                     icon={<IconPlay />}
                   >
                     {t('获取密钥')}
@@ -219,7 +214,7 @@ const Home = () => {
                 {isDemoSiteMode && statusState?.status?.version ? (
                   <Button
                     size={isMobile ? 'default' : 'large'}
-                    className='classic-home-secondary-btn'
+                    className='home-auth-btn home-auth-btn-register'
                     icon={<IconGithubLogo />}
                     onClick={() =>
                       window.open(
@@ -234,7 +229,7 @@ const Home = () => {
                   docsLink && (
                     <Button
                       size={isMobile ? 'default' : 'large'}
-                      className='classic-home-secondary-btn'
+                      className='home-auth-btn home-auth-btn-register'
                       icon={<IconFile />}
                       onClick={() => window.open(docsLink, '_blank')}
                     >
@@ -243,21 +238,24 @@ const Home = () => {
                   )
                 )}
               </div>
-            </div>
-          </section>
 
-          <section className='classic-home-providers'>
-            <div className='classic-home-section-head'>
-              <h2>{t('支持众多的大模型供应商')}</h2>
-            </div>
-            <div className='classic-home-provider-grid'>
-              {providerIcons.map((provider) => (
-                <div className='classic-home-provider-item' key={provider.name}>
-                  {provider.icon}
+              <div className='home-provider-section'>
+                <div className='home-provider-title'>
+                  {t('支持众多的大模型供应商')}
                 </div>
-              ))}
-              <div className='classic-home-provider-item classic-home-provider-more'>
-                30+
+                <div className='home-provider-grid'>
+                  {providerIcons.map((provider) => (
+                    <div
+                      className='home-provider-item'
+                      key={provider.name}
+                      aria-label={provider.name}
+                      title={provider.name}
+                    >
+                      {provider.icon}
+                    </div>
+                  ))}
+                  <div className='home-provider-more'>30+</div>
+                </div>
               </div>
             </div>
           </section>
