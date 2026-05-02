@@ -18,7 +18,7 @@ For commercial licensing, please contact support@quantumnous.com
 */
 
 import React, { useContext, useEffect, useState } from 'react';
-import { Button, Typography } from '@douyinfe/semi-ui';
+import { Button } from '@douyinfe/semi-ui';
 import { API, showError, copy, showSuccess } from '../../helpers';
 import { useIsMobile } from '../../hooks/common/useIsMobile';
 import { StatusContext } from '../../context/Status';
@@ -77,26 +77,6 @@ const providerIcons = [
   { name: 'Azure AI', icon: <AzureAI.Color size={38} /> },
   { name: 'Hunyuan', icon: <Hunyuan.Color size={38} /> },
   { name: 'Xinference', icon: <Xinference.Color size={38} /> },
-];
-
-const capabilityTags = ['多模型接入', '智能路由', '统一鉴权', '成本可控'];
-
-const valueCards = [
-  {
-    title: '高可用路由',
-    description: '自动切换可用渠道，降低失败率',
-    metric: 'HA',
-  },
-  {
-    title: '实时用量观测',
-    description: '请求、Token、成本一屏掌握',
-    metric: 'OBS',
-  },
-  {
-    title: '成本与额度控制',
-    description: '按用户、模型、Key 精细化限制',
-    metric: 'CTRL',
-  },
 ];
 
 const Home = () => {
@@ -188,31 +168,26 @@ const Home = () => {
       />
       {homePageContentLoaded && homePageContent === '' ? (
         <div className='classic-home-shell'>
-          <div className='classic-home-grid' />
-          <div className='classic-home-glow classic-home-glow-left' />
-          <div className='classic-home-glow classic-home-glow-right' />
+          <div className='classic-home-aura classic-home-aura-left' />
+          <div className='classic-home-aura classic-home-aura-right' />
 
           <section className='classic-home-hero'>
             <div className='classic-home-hero-copy'>
-              <div className='classic-home-kicker'>
-                {t('智算 API 网关')}
-              </div>
-              <h1>{t('稳定、安全、可观测的企业级 AI API 网关')}</h1>
+              <h1>
+                <span>{t('统一的')}</span>
+                <span>{t('大模型接口网关')}</span>
+              </h1>
               <p className='classic-home-subtitle'>
                 {t(
                   '统一接入 OpenAI、Claude、Gemini、DeepSeek 等主流模型，提供高可用路由、统一鉴权、用量统计与成本控制',
                 )}
               </p>
 
-              <div className='classic-home-tags'>
-                {capabilityTags.map((tag) => (
-                  <span key={tag}>{t(tag)}</span>
-                ))}
-              </div>
-
               <div className='classic-home-basebar'>
-                <div className='classic-home-basebar-label'>API Base URL</div>
-                <div className='classic-home-basebar-value' title={serverAddress}>
+                <div
+                  className='classic-home-basebar-value'
+                  title={serverAddress}
+                >
                   {serverAddress}
                 </div>
                 <div className='classic-home-basebar-endpoint'>
@@ -223,9 +198,9 @@ const Home = () => {
                   onClick={handleCopyBaseURL}
                   icon={<IconCopy />}
                   className='classic-home-copy-btn'
-                  aria-label={t('复制 API 地址')}
+                  aria-label={t('复制')}
                 >
-                  {t('复制 API 地址')}
+                  {t('复制')}
                 </Button>
               </div>
 
@@ -238,7 +213,7 @@ const Home = () => {
                     className='classic-home-primary-btn'
                     icon={<IconPlay />}
                   >
-                    {t('立即获取 API Key')}
+                    {t('获取密钥')}
                   </Button>
                 </Link>
                 {isDemoSiteMode && statusState?.status?.version ? (
@@ -263,59 +238,17 @@ const Home = () => {
                       icon={<IconFile />}
                       onClick={() => window.open(docsLink, '_blank')}
                     >
-                      {t('查看接入文档')}
+                      {t('文档')}
                     </Button>
                   )
                 )}
               </div>
             </div>
-
-            <div className='classic-home-hero-panel' aria-hidden='true'>
-              <div className='classic-home-panel-header'>
-                <span />
-                <span />
-                <span />
-              </div>
-              <div className='classic-home-panel-body'>
-                <div className='classic-home-route-row active'>
-                  <span>OpenAI</span>
-                  <strong>99.99%</strong>
-                </div>
-                <div className='classic-home-route-row'>
-                  <span>Claude</span>
-                  <strong>34ms</strong>
-                </div>
-                <div className='classic-home-route-row'>
-                  <span>Gemini</span>
-                  <strong>12.8M</strong>
-                </div>
-                <div className='classic-home-terminal'>
-                  <code>POST /v1/chat/completions</code>
-                  <code>auth unified_key</code>
-                  <code>route fallback_channel</code>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          <section className='classic-home-values'>
-            {valueCards.map((card) => (
-              <article className='classic-home-value-card' key={card.title}>
-                <div className='classic-home-value-metric'>{card.metric}</div>
-                <Typography.Title heading={3}>{t(card.title)}</Typography.Title>
-                <Typography.Text>{t(card.description)}</Typography.Text>
-              </article>
-            ))}
           </section>
 
           <section className='classic-home-providers'>
             <div className='classic-home-section-head'>
-              <Typography.Title heading={2}>
-                {t('支持主流模型供应商')}
-              </Typography.Title>
-              <Typography.Text>
-                {t('统一转发、统一鉴权、统一计费')}
-              </Typography.Text>
+              <h2>{t('支持众多的大模型供应商')}</h2>
             </div>
             <div className='classic-home-provider-grid'>
               {providerIcons.map((provider) => (
