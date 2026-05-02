@@ -27,6 +27,10 @@
   body {
     @apply bg-background text-foreground has-[div[data-variant='inset']]:bg-sidebar min-h-svh w-full font-sans;
   }
+  /* Orange focus ring for brand consistency */
+  :focus-visible {
+    outline-color: #FF6A00 !important;
+  }
 
   /* Override Radix scroll locking for sticky headers */
   body[data-scroll-locked] {
@@ -191,25 +195,40 @@
     background-image: radial-gradient(var(--tw-gradient-stops));
   }
 
-  /* Glass morphism effects - matching Launch UI template */
+  /* Glass morphism effects - warm brand palette */
   .glass-1 {
-    @apply border-border from-card/80 to-card/40 dark:border-border/10 dark:border-b-border/5 dark:border-t-border/20 dark:from-card/5 dark:to-card/0 border bg-linear-to-b;
+    @apply border bg-linear-to-b;
+    border-color: rgb(243 215 181 / 0.7);
+    --tw-gradient-from: rgb(255 251 242 / 0.85);
+    --tw-gradient-to: rgb(255 251 242 / 0.5);
   }
 
   .glass-2 {
-    @apply border-border from-card/100 to-card/80 dark:border-border/10 dark:border-b-border/5 dark:border-t-border/20 dark:from-card/10 dark:to-card/5 border bg-linear-to-b;
+    @apply border bg-linear-to-b;
+    border-color: rgb(243 215 181 / 0.8);
+    --tw-gradient-from: rgb(255 251 242 / 1);
+    --tw-gradient-to: rgb(255 251 242 / 0.8);
   }
 
   .glass-3 {
-    @apply border-border from-card/30 to-card/20 dark:border-border/10 dark:border-t-border/20 dark:border-b-border/5 dark:from-primary/5 dark:to-primary/2 border bg-linear-to-b;
+    @apply border bg-linear-to-b;
+    border-color: rgb(243 215 181 / 0.5);
+    --tw-gradient-from: rgb(255 247 230 / 0.4);
+    --tw-gradient-to: rgb(255 247 230 / 0.2);
   }
 
   .glass-4 {
-    @apply border-border border-b-input/90 from-card/60 to-card/20 dark:border-border/10 dark:border-t-border/30 dark:from-primary/10 dark:to-primary/5 border bg-linear-to-b dark:border-b-0;
+    @apply border bg-linear-to-b;
+    border-color: rgb(243 215 181 / 0.7);
+    --tw-gradient-from: rgb(255 251 242 / 0.7);
+    --tw-gradient-to: rgb(255 251 242 / 0.3);
   }
 
   .glass-5 {
-    @apply border-border border-b-input from-card/100 to-card/20 dark:border-border/10 dark:border-t-border/30 dark:from-primary/15 dark:to-primary/5 border bg-linear-to-b dark:border-b-0;
+    @apply border bg-linear-to-b;
+    border-color: rgb(243 215 181 / 0.9);
+    --tw-gradient-from: rgb(255 251 242 / 1);
+    --tw-gradient-to: rgb(255 251 242 / 0.2);
   }
 
   /* Fade effects - matching Launch UI template */

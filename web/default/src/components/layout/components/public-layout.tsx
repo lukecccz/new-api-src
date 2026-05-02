@@ -16,7 +16,7 @@ type PublicLayoutProps = {
 
 export function PublicLayout(props: PublicLayoutProps) {
   return (
-    <div className='bg-background text-foreground relative min-h-svh overflow-hidden'>
+    <div className='relative min-h-svh overflow-hidden text-foreground' style={{ background: 'var(--background)' }}>
       <PublicHeader
         navContent={props.navContent}
         navLinks={props.navLinks}

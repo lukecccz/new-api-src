@@ -93,9 +93,17 @@ export function PublicHeader(props: PublicHeaderProps) {
             className={cn(
               'flex items-center justify-between transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)]',
               scrolled
-                ? 'bg-background/60 ring-border/50 h-12 rounded-2xl pr-1.5 pl-4 shadow-[0_2px_16px_-6px_rgba(0,0,0,0.08),0_0_0_0.5px_rgba(0,0,0,0.02)] ring-[0.5px] backdrop-blur-2xl dark:shadow-[0_2px_16px_-6px_rgba(0,0,0,0.4)]'
+                ? 'h-12 rounded-2xl pr-1.5 pl-4 backdrop-blur-2xl'
                 : 'h-16 px-2'
             )}
+            style={
+              scrolled
+                ? {
+                    background: 'rgba(255,251,242,0.82)',
+                    boxShadow: '0 2px 24px -6px rgba(255,106,0,0.10), 0 0 0 0.5px rgba(243,215,181,0.7)',
+                  }
+                : undefined
+            }
           >
             {/* Logo */}
             <Link
@@ -179,10 +187,11 @@ export function PublicHeader(props: PublicHeaderProps) {
                   ) : (
                     <Button
                       size='sm'
-                      className='h-8 rounded-lg px-3.5 text-xs font-medium'
+                      className='h-8 rounded-lg px-4 text-xs font-semibold shadow-sm shadow-orange-200/40'
+                      style={{ background: 'linear-gradient(135deg, #FF6A00, #FFB000)' }}
                       asChild
                     >
-                      <Link to='/sign-in'>{t('Sign in')}</Link>
+                      <Link to='/sign-in'>{t('登录')}</Link>
                     </Button>
                   )}
                 </>
@@ -274,9 +283,10 @@ export function PublicHeader(props: PublicHeaderProps) {
               <Link
                 to={isAuthenticated ? '/dashboard' : '/sign-in'}
                 onClick={() => setMobileOpen(false)}
-                className='bg-foreground text-background inline-flex h-10 items-center justify-center rounded-lg text-sm font-medium transition-opacity hover:opacity-90 active:opacity-80'
+                className='inline-flex h-10 items-center justify-center rounded-xl text-sm font-semibold text-white transition-opacity hover:opacity-90 active:opacity-80'
+                style={{ background: 'linear-gradient(135deg, #FF6A00, #FFB000)' }}
               >
-                {isAuthenticated ? t('Go to Dashboard') : t('Sign in')}
+                {isAuthenticated ? t('进入控制台') : t('登录')}
               </Link>
             )}
           </div>

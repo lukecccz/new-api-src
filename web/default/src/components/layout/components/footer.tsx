@@ -134,7 +134,7 @@ export function Footer(props: FooterProps) {
 
   return (
     <footer
-      className={cn('border-border/40 relative z-10 border-t', props.className)}
+      className={cn('relative z-10 border-t border-[#F3D7B5]', props.className)}
     >
       <div className='mx-auto max-w-6xl px-6 py-12 md:py-16'>
         <div className='flex flex-col justify-between gap-10 md:flex-row md:gap-16'>
@@ -146,12 +146,12 @@ export function Footer(props: FooterProps) {
                 alt={displayName}
                 className='size-7 rounded-lg object-contain'
               />
-              <span className='text-sm font-semibold tracking-tight'>
+              <span className='text-sm font-semibold tracking-tight text-[#111827]'>
                 {displayName}
               </span>
             </Link>
-            <p className='text-muted-foreground/60 mt-3 max-w-[200px] text-xs leading-relaxed'>
-              {t('Powerful API Management Platform')}
+            <p className='mt-3 max-w-[200px] text-xs leading-relaxed text-[#6B7280]/70'>
+              {t('智算 API 网关 — 专业 AI 接入管理平台')}
             </p>
           </div>
 
@@ -177,20 +177,20 @@ export function Footer(props: FooterProps) {
         </div>
 
         {/* Bottom section */}
-        <div className='border-border/30 mt-12 flex flex-col items-center justify-between gap-3 border-t pt-6 sm:flex-row'>
-          <p className='text-muted-foreground/40 text-xs'>
+        <div className='mt-12 flex flex-col items-center justify-between gap-3 border-t border-[#F3D7B5]/60 pt-6 sm:flex-row'>
+          <p className='text-xs text-[#6B7280]/50'>
             &copy; {currentYear} {displayName}.{' '}
             {props.copyright ?? t('footer.defaultCopyright')}
           </p>
           <div className='flex items-center gap-2'>
-            <span className='text-muted-foreground/40 text-xs'>
+            <span className='text-xs text-[#6B7280]/40'>
               {t('Designed and Developed by')}{' '}
             </span>
             <a
               href='https://github.com/QuantumNous/new-api'
               target='_blank'
               rel='noopener noreferrer'
-              className='text-primary text-xs font-medium hover:underline'
+              className='text-xs font-medium text-[#FF6A00] hover:underline'
             >
               {t('New API')}
             </a>

@@ -1,5 +1,5 @@
 import { Link } from '@tanstack/react-router'
-import { ArrowRight } from 'lucide-react'
+import { ArrowRight, Cpu, Zap } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
 import { useSystemConfig } from '@/hooks/use-system-config'
 import { Button } from '@/components/ui/button'
@@ -15,79 +15,131 @@ export function Hero(props: HeroProps) {
   const { systemName } = useSystemConfig()
 
   return (
-    <section className='relative z-10 flex flex-col items-center overflow-hidden px-6 pt-28 pb-16 md:pt-36 md:pb-24'>
-      {/* Radial gradient background */}
+    <section className='relative z-10 flex flex-col items-center overflow-hidden px-6 pt-28 pb-16 md:pt-40 md:pb-28'>
+      {/* Warm radial glow */}
       <div
         aria-hidden
-        className='pointer-events-none absolute inset-0 -z-10 opacity-25 dark:opacity-[0.12]'
+        className='pointer-events-none absolute inset-0 -z-10'
         style={{
           background: [
-            'radial-gradient(ellipse 60% 50% at 20% 20%, oklch(0.72 0.18 250 / 80%) 0%, transparent 70%)',
-            'radial-gradient(ellipse 50% 40% at 80% 15%, oklch(0.65 0.15 200 / 60%) 0%, transparent 70%)',
-            'radial-gradient(ellipse 40% 35% at 40% 80%, oklch(0.70 0.12 280 / 40%) 0%, transparent 70%)',
+            'radial-gradient(ellipse 70% 55% at 50% -10%, oklch(0.85 0.12 55 / 55%) 0%, transparent 65%)',
+            'radial-gradient(ellipse 40% 35% at 80% 60%, oklch(0.80 0.10 41 / 20%) 0%, transparent 70%)',
+            'radial-gradient(ellipse 30% 30% at 20% 70%, oklch(0.88 0.09 75 / 25%) 0%, transparent 70%)',
           ].join(', '),
         }}
       />
-      {/* Grid pattern */}
+      {/* Subtle dot grid */}
       <div
         aria-hidden
-        className='absolute inset-0 -z-10 bg-[linear-gradient(to_right,var(--border)_1px,transparent_1px),linear-gradient(to_bottom,var(--border)_1px,transparent_1px)] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_30%,black_20%,transparent_100%)] bg-[size:4rem_4rem] opacity-[0.08]'
+        className='absolute inset-0 -z-10 [mask-image:radial-gradient(ellipse_70%_60%_at_50%_30%,black_20%,transparent_100%)]'
+        style={{
+          backgroundImage:
+            'radial-gradient(circle, oklch(0.62 0.21 41 / 0.15) 1px, transparent 1px)',
+          backgroundSize: '28px 28px',
+        }}
       />
+
+      {/* Badge */}
+      <div
+        className='landing-animate-fade-up mb-6 flex items-center gap-2 rounded-full border border-[#F3D7B5] bg-white/70 px-4 py-1.5 text-xs font-medium shadow-sm backdrop-blur-sm'
+        style={{ animationDelay: '0ms' }}
+      >
+        <Zap className='size-3.5 text-[#FF6A00]' />
+        <span className='text-[#6B7280]'>{t('Powered by 50+ AI Providers')}</span>
+      </div>
 
       <div className='flex max-w-3xl flex-col items-center text-center'>
         <h1
-          className='landing-animate-fade-up text-[clamp(2rem,5.5vw,3.5rem)] leading-[1.15] font-bold tracking-tight'
-          style={{ animationDelay: '0ms' }}
+          className='landing-animate-fade-up text-[clamp(2.2rem,5.5vw,3.8rem)] leading-[1.12] font-bold tracking-tight opacity-0'
+          style={{ animationDelay: '60ms' }}
         >
-          {t('Unified API Gateway for')}
-          <br />
-          <span className='bg-gradient-to-r from-blue-400 via-violet-400 to-purple-500 bg-clip-text text-transparent'>
-            {t('All Your AI Models')}
+          <span className='text-[#111827]'>
+            {t('智算 API 网关')}
+            <br />
+          </span>
+          <span
+            style={{
+              background:
+                'linear-gradient(135deg, #FF6A00 0%, #FFB000 60%, #FF8C00 100%)',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+              backgroundClip: 'text',
+            }}
+          >
+            {t('AI Gateway Console')}
           </span>
         </h1>
         <p
-          className='landing-animate-fade-up text-muted-foreground/80 mt-5 max-w-lg text-base leading-relaxed opacity-0 md:text-lg'
-          style={{ animationDelay: '80ms' }}
+          className='landing-animate-fade-up mt-5 max-w-xl text-base leading-relaxed text-[#6B7280] opacity-0 md:text-lg'
+          style={{ animationDelay: '120ms' }}
         >
-          {systemName}{' '}
+          {systemName || t('AI Gateway Console')}{' '}
           {t(
-            'aggregates 50+ AI providers behind one unified API. Manage access, track costs, and scale effortlessly.'
+            '聚合 50+ AI 供应商，一个 API 端点管理所有模型。统一计费、精细限速、实时监控。'
           )}
         </p>
         <div
-          className='landing-animate-fade-up mt-8 flex items-center gap-3 opacity-0'
-          style={{ animationDelay: '160ms' }}
+          className='landing-animate-fade-up mt-8 flex flex-wrap items-center justify-center gap-3 opacity-0'
+          style={{ animationDelay: '200ms' }}
         >
           {props.isAuthenticated ? (
-            <Button className='group rounded-lg' asChild>
+            <Button
+              className='group h-11 rounded-xl px-6 text-sm font-semibold shadow-md shadow-orange-200/40'
+              style={{ background: 'linear-gradient(135deg, #FF6A00, #FFB000)' }}
+              asChild
+            >
               <Link to='/dashboard'>
-                {t('Go to Dashboard')}
-                <ArrowRight className='ml-1 size-3.5 transition-transform duration-200 group-hover:translate-x-0.5' />
+                {t('进入控制台')}
+                <ArrowRight className='ml-1.5 size-4 transition-transform duration-200 group-hover:translate-x-0.5' />
               </Link>
             </Button>
           ) : (
             <>
-              <Button className='group rounded-lg' asChild>
+              <Button
+                className='group h-11 rounded-xl px-6 text-sm font-semibold shadow-md shadow-orange-200/40'
+                style={{ background: 'linear-gradient(135deg, #FF6A00, #FFB000)' }}
+                asChild
+              >
                 <Link to='/sign-up'>
-                  {t('Get Started')}
-                  <ArrowRight className='ml-1 size-3.5 transition-transform duration-200 group-hover:translate-x-0.5' />
+                  {t('免费开始使用')}
+                  <ArrowRight className='ml-1.5 size-4 transition-transform duration-200 group-hover:translate-x-0.5' />
                 </Link>
               </Button>
               <Button
                 variant='outline'
-                className='border-border/50 hover:border-border hover:bg-muted/50 rounded-lg'
+                className='h-11 rounded-xl border-[#F3D7B5] bg-white/70 px-6 text-sm font-medium backdrop-blur-sm hover:border-[#FF6A00]/40 hover:bg-orange-50/60'
                 asChild
               >
-                <Link to='/pricing'>{t('View Pricing')}</Link>
+                <Link to='/pricing'>{t('查看价格')}</Link>
               </Button>
             </>
           )}
         </div>
+
+        {/* Quick trust signals */}
+        <div
+          className='landing-animate-fade-up mt-10 flex flex-wrap items-center justify-center gap-4 opacity-0'
+          style={{ animationDelay: '300ms' }}
+        >
+          {[
+            { icon: <Cpu className='size-3.5' />, text: t('OpenAI 兼容接口') },
+            { icon: <Zap className='size-3.5' />, text: t('毫秒级响应') },
+            { icon: <ArrowRight className='size-3.5' />, text: t('无需信用卡') },
+          ].map((item) => (
+            <div
+              key={item.text}
+              className='flex items-center gap-1.5 text-xs text-[#6B7280]'
+            >
+              <span className='text-[#FF6A00]'>{item.icon}</span>
+              {item.text}
+            </div>
+          ))}
+        </div>
       </div>
 
       <div
-        className='landing-animate-fade-up w-full opacity-0'
-        style={{ animationDelay: '300ms' }}
+        className='landing-animate-fade-up mt-14 w-full opacity-0'
+        style={{ animationDelay: '380ms' }}
       >
         <HeroTerminalDemo />
       </div>

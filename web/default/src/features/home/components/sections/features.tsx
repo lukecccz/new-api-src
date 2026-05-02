@@ -11,30 +11,24 @@ import {
 import { useTranslation } from 'react-i18next'
 import { AnimateInView } from '@/components/animate-in-view'
 
-interface FeaturesProps {
-  className?: string
-}
-
-export function Features(_props: FeaturesProps) {
+export function Features() {
   const { t } = useTranslation()
 
   const features = [
     {
       id: 'fast',
       num: '01',
-      title: t('Lightning Fast'),
-      desc: t(
-        'Optimized network architecture ensures millisecond response times'
-      ),
+      title: t('极速转发'),
+      desc: t('优化网络架构，毫秒级响应，支持流式输出与高并发场景'),
       span: 'md:col-span-2',
-      icon: <Zap className='size-4 text-blue-400' />,
+      accent: '#FF6A00',
       visual: (
         <div className='mt-4 grid grid-cols-3 gap-2'>
           {['OpenAI', 'Claude', 'Gemini', 'DeepSeek', 'Qwen', 'Llama'].map(
             (name) => (
               <div
                 key={name}
-                className='border-border/30 bg-muted/20 text-muted-foreground flex items-center justify-center rounded-lg border px-3 py-2 text-xs transition-colors duration-300 hover:border-blue-500/30 hover:bg-blue-500/5'
+                className='flex items-center justify-center rounded-xl border border-[#F3D7B5] bg-white/80 px-3 py-2 text-xs text-[#6B7280] transition-colors hover:border-[#FF6A00]/30 hover:bg-orange-50/60'
               >
                 {name}
               </div>
@@ -46,24 +40,19 @@ export function Features(_props: FeaturesProps) {
     {
       id: 'secure',
       num: '02',
-      title: t('Secure & Reliable'),
-      desc: t(
-        'Enterprise-grade security with comprehensive permission management'
-      ),
+      title: t('安全可靠'),
+      desc: t('企业级权限管理，多维度访问控制，完整审计日志'),
       span: 'md:col-span-1',
-      icon: <Shield className='size-4 text-emerald-400' />,
+      accent: '#10B981',
       visual: (
         <div className='mt-4 flex items-center justify-center'>
           <div className='relative'>
-            <div className='flex size-16 items-center justify-center rounded-2xl border border-emerald-500/20 bg-emerald-500/5'>
-              <Shield
-                className='size-7 text-emerald-500/70'
-                strokeWidth={1.5}
-              />
+            <div className='flex size-16 items-center justify-center rounded-2xl border border-emerald-200 bg-emerald-50'>
+              <Shield className='size-7 text-emerald-500' strokeWidth={1.5} />
             </div>
-            <div className='absolute -top-1 -right-1 flex size-4 items-center justify-center rounded-full bg-emerald-500'>
+            <div className='absolute -top-1 -right-1 flex size-5 items-center justify-center rounded-full bg-emerald-500'>
               <svg
-                className='size-2.5 text-white'
+                className='size-3 text-white'
                 fill='none'
                 viewBox='0 0 24 24'
                 stroke='currentColor'
@@ -83,54 +72,52 @@ export function Features(_props: FeaturesProps) {
     {
       id: 'global',
       num: '03',
-      title: t('Global Coverage'),
-      desc: t('Multi-region deployment for stable global access'),
+      title: t('全球覆盖'),
+      desc: t('多地域部署，智能负载均衡，稳定访问全球 AI 服务'),
       span: 'md:col-span-1',
-      icon: <Globe className='size-4 text-violet-400' />,
+      accent: '#8B5CF6',
       visual: (
         <div className='mt-4 space-y-2'>
-          {[t('Load Balancing'), t('Rate Limiting'), t('Cost Tracking')].map(
-            (step, i) => (
-              <div key={step} className='flex items-center gap-2'>
-                <div
-                  className={`flex size-6 items-center justify-center rounded-full text-[10px] font-bold ${
-                    i === 1
-                      ? 'border border-blue-500/30 bg-blue-500/20 text-blue-500'
-                      : 'border-border/40 bg-muted text-muted-foreground border'
-                  }`}
-                >
-                  {i + 1}
-                </div>
-                <div className='bg-border/40 h-px flex-1' />
-                <span className='text-muted-foreground text-xs'>{step}</span>
+          {[t('负载均衡'), t('限速控制'), t('成本追踪')].map((step, i) => (
+            <div key={step} className='flex items-center gap-2'>
+              <div
+                className={`flex size-6 items-center justify-center rounded-full text-[10px] font-bold ${
+                  i === 1
+                    ? 'border border-[#FF6A00]/30 bg-orange-50 text-[#FF6A00]'
+                    : 'border border-[#F3D7B5] bg-white text-[#6B7280]'
+                }`}
+              >
+                {i + 1}
               </div>
-            )
-          )}
+              <div className='h-px flex-1 bg-[#F3D7B5]' />
+              <span className='text-xs text-[#6B7280]'>{step}</span>
+            </div>
+          ))}
         </div>
       ),
     },
     {
       id: 'developer',
       num: '04',
-      title: t('Developer Friendly'),
-      desc: t('Complete API documentation with multi-language SDK support'),
+      title: t('开发者友好'),
+      desc: t('完整 API 文档，OpenAI 兼容接口，多语言 SDK 支持'),
       span: 'md:col-span-2',
-      icon: <Code className='size-4 text-amber-400' />,
+      accent: '#F59E0B',
       visual: (
         <div className='mt-4 flex items-center gap-3'>
           <div className='flex -space-x-2'>
-            {['API', 'SDK', 'CLI', 'Docs'].map((n) => (
+            {['API', 'SDK', 'CLI', 'Doc'].map((n) => (
               <div
                 key={n}
-                className='border-background from-muted to-muted/60 text-muted-foreground flex size-8 items-center justify-center rounded-full border-2 bg-gradient-to-br text-[9px] font-bold'
+                className='flex size-8 items-center justify-center rounded-full border-2 border-white bg-gradient-to-br from-orange-100 to-amber-100 text-[9px] font-bold text-[#FF6A00]'
               >
                 {n}
               </div>
             ))}
           </div>
-          <div className='text-muted-foreground flex items-center gap-1.5 text-xs'>
-            <Code className='size-3.5 text-blue-500' />
-            {t('OpenAI Compatible')}
+          <div className='flex items-center gap-1.5 text-xs text-[#6B7280]'>
+            <Code className='size-3.5 text-[#FF6A00]' />
+            {t('OpenAI 兼容')}
           </div>
         </div>
       ),
@@ -140,23 +127,23 @@ export function Features(_props: FeaturesProps) {
   const additionalFeatures = [
     {
       icon: <Gauge className='size-5' strokeWidth={1.5} />,
-      title: t('High Performance'),
-      desc: t('Support for high concurrency with automatic load balancing'),
+      title: t('高性能并发'),
+      desc: t('支持高并发，自动负载均衡与故障转移'),
     },
     {
       icon: <DollarSign className='size-5' strokeWidth={1.5} />,
-      title: t('Transparent Billing'),
-      desc: t('Pay-as-you-go with real-time usage monitoring'),
+      title: t('透明计费'),
+      desc: t('按需付费，实时用量监控，无隐藏费用'),
     },
     {
       icon: <Users className='size-5' strokeWidth={1.5} />,
-      title: t('Team Collaboration'),
-      desc: t('Multi-user management with flexible permission allocation'),
+      title: t('团队协作'),
+      desc: t('多用户管理，灵活配额分配，权限细粒度控制'),
     },
     {
       icon: <HeartHandshake className='size-5' strokeWidth={1.5} />,
-      title: t('Technical Support'),
-      desc: t('Professional team providing 24/7 technical support'),
+      title: t('专业支持'),
+      desc: t('专业团队提供 7×24 技术支持服务'),
     },
   ]
 
@@ -164,53 +151,54 @@ export function Features(_props: FeaturesProps) {
     <section className='relative z-10 px-6 py-24 md:py-32'>
       <div className='mx-auto max-w-6xl'>
         <AnimateInView className='mb-16 max-w-lg'>
-          <p className='text-muted-foreground mb-3 text-xs font-medium tracking-widest uppercase'>
-            {t('Core Features')}
+          <p className='mb-3 text-xs font-semibold uppercase tracking-widest text-[#FF6A00]'>
+            {t('核心优势')}
           </p>
-          <h2 className='text-2xl leading-tight font-bold tracking-tight md:text-3xl'>
-            {t('Built for developers,')}
+          <h2 className='text-2xl font-bold leading-tight tracking-tight text-[#111827] md:text-3xl'>
+            {t('为开发者而生，')}
             <br />
-            {t('designed for scale')}
+            {t('为规模化而设计')}
           </h2>
         </AnimateInView>
 
         {/* Bento grid */}
-        <div className='border-border/40 bg-border/40 grid gap-px overflow-hidden rounded-xl border md:grid-cols-3'>
+        <div className='grid gap-3 md:grid-cols-3'>
           {features.map((f, i) => (
             <AnimateInView
               key={f.id}
-              delay={i * 100}
+              delay={i * 80}
               animation='scale-in'
-              className={`bg-background group hover:bg-muted/20 p-7 transition-colors duration-300 md:p-8 ${f.span}`}
+              className={`group rounded-2xl border border-[#F3D7B5] bg-white/80 p-7 shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md hover:shadow-orange-100/60 backdrop-blur-sm md:p-8 ${f.span}`}
             >
               <div className='mb-3 flex items-center gap-3'>
-                <span className='border-border/40 bg-muted text-muted-foreground flex size-7 items-center justify-center rounded-md border text-[10px] font-semibold tabular-nums'>
+                <span
+                  className='flex size-7 items-center justify-center rounded-lg text-[10px] font-bold text-white'
+                  style={{ background: f.accent }}
+                >
                   {f.num}
                 </span>
-                <h3 className='text-sm font-semibold'>{f.title}</h3>
+                <h3 className='text-sm font-semibold text-[#111827]'>{f.title}</h3>
               </div>
-              <p className='text-muted-foreground text-sm leading-relaxed'>
-                {f.desc}
-              </p>
+              <p className='text-sm leading-relaxed text-[#6B7280]'>{f.desc}</p>
               {f.visual}
             </AnimateInView>
           ))}
         </div>
 
         {/* Additional features row */}
-        <div className='mt-12 grid grid-cols-2 gap-8 md:grid-cols-4 md:gap-12'>
+        <div className='mt-14 grid grid-cols-2 gap-8 md:grid-cols-4 md:gap-12'>
           {additionalFeatures.map((f, i) => (
             <AnimateInView
               key={f.title}
-              delay={i * 100}
+              delay={i * 80}
               animation='fade-up'
               className='flex flex-col items-center text-center'
             >
-              <div className='text-muted-foreground border-border/50 bg-muted/30 group-hover:text-foreground mb-3 flex size-12 items-center justify-center rounded-xl border transition-colors'>
+              <div className='mb-3 flex size-12 items-center justify-center rounded-2xl border border-[#F3D7B5] bg-white text-[#FF6A00] shadow-sm'>
                 {f.icon}
               </div>
-              <h3 className='mb-1.5 text-sm font-semibold'>{f.title}</h3>
-              <p className='text-muted-foreground max-w-[200px] text-xs leading-relaxed'>
+              <h3 className='mb-1.5 text-sm font-semibold text-[#111827]'>{f.title}</h3>
+              <p className='max-w-[200px] text-xs leading-relaxed text-[#6B7280]'>
                 {f.desc}
               </p>
             </AnimateInView>

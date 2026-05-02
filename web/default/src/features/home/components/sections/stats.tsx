@@ -73,27 +73,36 @@ export function Stats(_props: StatsProps) {
   const { t } = useTranslation()
 
   const stats = [
-    { end: 100, suffix: 'M+', label: t('requests served') },
-    { end: 50, suffix: '+', label: t('AI models supported') },
-    { end: 99.9, suffix: '%', label: t('uptime'), decimals: 1 },
-    { end: 10, suffix: 'K+', label: t('active users') },
+    { end: 100, suffix: 'M+', label: t('累计请求量') },
+    { end: 50, suffix: '+', label: t('接入 AI 模型') },
+    { end: 99.9, suffix: '%', label: t('服务可用率'), decimals: 1 },
+    { end: 10, suffix: 'K+', label: t('活跃用户') },
   ]
 
   return (
-    <div className='border-border/40 bg-muted/10 relative z-10 border-y'>
-      <div className='mx-auto max-w-6xl px-6 py-10 md:py-12'>
-        <div className='grid grid-cols-2 gap-8 md:grid-cols-4 md:gap-12'>
-          {stats.map((s) => (
+    <div className='relative z-10 border-y border-[#F3D7B5] bg-white/50 backdrop-blur-sm'>
+      <div className='mx-auto max-w-6xl px-6 py-10 md:py-14'>
+        <div className='grid grid-cols-2 gap-8 md:grid-cols-4 md:gap-0'>
+          {stats.map((s, i) => (
             <div
               key={s.label}
-              className='flex flex-col items-center text-center'
+              className={`flex flex-col items-center text-center ${
+                i > 0 ? 'md:border-l md:border-[#F3D7B5]' : ''
+              }`}
             >
-              <span className='text-2xl font-bold tracking-tight md:text-3xl'>
+              <span
+                className='text-3xl font-bold tracking-tight md:text-4xl'
+                style={{
+                  background:
+                    'linear-gradient(135deg, #FF6A00 0%, #FFB000 100%)',
+                  WebkitBackgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent',
+                  backgroundClip: 'text',
+                }}
+              >
                 <Counter end={s.end} suffix={s.suffix} decimals={s.decimals} />
               </span>
-              <span className='text-muted-foreground mt-1.5 text-xs'>
-                {s.label}
-              </span>
+              <span className='mt-1.5 text-xs text-[#6B7280]'>{s.label}</span>
             </div>
           ))}
         </div>
