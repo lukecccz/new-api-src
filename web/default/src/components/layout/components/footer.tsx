@@ -182,19 +182,7 @@ export function Footer(props: FooterProps) {
             &copy; {currentYear} {displayName}.{' '}
             {props.copyright ?? t('footer.defaultCopyright')}
           </p>
-          <div className='flex items-center gap-2'>
-            <span className='text-xs text-[#6B7280]/40'>
-              {t('Designed and Developed by')}{' '}
-            </span>
-            <a
-              href='https://github.com/QuantumNous/new-api'
-              target='_blank'
-              rel='noopener noreferrer'
-              className='text-xs font-medium text-[#FF6A00] hover:underline'
-            >
-              {t('New API')}
-            </a>
-          </div>
+          {/* "Designed and Developed by New API" intentionally hidden */}
         </div>
       </div>
     </footer>

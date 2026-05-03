@@ -12,42 +12,42 @@ interface ModelConfig {
 
 const MODELS: ModelConfig[] = [
   {
-    id: 'gpt-4o',
-    name: 'gpt-4o',
+    id: 'gpt-5.5',
+    name: 'gpt-5.5',
     response:
       'Artificial intelligence models can be seamlessly accessed through a unified API gateway, enabling developers to switch between providers effortlessly.',
     tokens: 27,
-    latency: 142,
+    latency: 118,
     badgeClass:
       'bg-emerald-500/10 text-emerald-600 ring-emerald-500/20 dark:bg-emerald-500/15 dark:text-emerald-400 dark:ring-emerald-500/25',
   },
   {
-    id: 'claude-sonnet',
-    name: 'claude-sonnet-4-20250514',
+    id: 'claude-opus-4.7',
+    name: 'claude-opus-4.7',
     response:
       'A unified gateway abstracts away provider differences, letting you focus on building great products while we handle routing, failover, and cost optimization.',
     tokens: 31,
-    latency: 168,
+    latency: 145,
     badgeClass:
       'bg-amber-500/10 text-amber-600 ring-amber-500/20 dark:bg-amber-500/15 dark:text-amber-400 dark:ring-amber-500/25',
   },
   {
-    id: 'gemini-pro',
-    name: 'gemini-2.5-pro',
+    id: 'gemini-3',
+    name: 'gemini-3',
     response:
       'By consolidating multiple AI providers behind one endpoint, teams can reduce integration complexity and gain unified observability across all model usage.',
     tokens: 29,
-    latency: 156,
+    latency: 132,
     badgeClass:
       'bg-blue-500/10 text-blue-600 ring-blue-500/20 dark:bg-blue-500/15 dark:text-blue-400 dark:ring-blue-500/25',
   },
   {
-    id: 'deepseek',
-    name: 'deepseek-chat',
+    id: 'deepseek-v4',
+    name: 'deepseek-v4',
     response:
       'An API gateway provides automatic load balancing, rate limiting, and cost tracking — essential infrastructure for production AI applications at scale.',
     tokens: 25,
-    latency: 93,
+    latency: 87,
     badgeClass:
       'bg-violet-500/10 text-violet-600 ring-violet-500/20 dark:bg-violet-500/15 dark:text-violet-400 dark:ring-violet-500/25',
   },
