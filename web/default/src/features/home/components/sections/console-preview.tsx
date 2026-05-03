@@ -44,7 +44,7 @@ export function ConsolePreview() {
             </h2>
             <p className='mt-4 text-sm leading-relaxed text-[#6B7280]'>
               {t(
-                '智算 API 网关提供完整的 SaaS 级管理界面，从渠道配置到用量分析，所有功能触手可及。'
+                'TokenHub 提供完整的 SaaS 级管理界面，从渠道配置到用量分析，所有功能触手可及。'
               )}
             </p>
 

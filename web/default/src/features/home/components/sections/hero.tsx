@@ -51,10 +51,10 @@ export function Hero(props: HeroProps) {
       <div className='flex max-w-3xl flex-col items-center text-center'>
         <h1
           className='landing-animate-fade-up text-[clamp(2.2rem,5.5vw,3.8rem)] leading-[1.12] font-bold tracking-tight opacity-0'
-          style={{ animationDelay: '60ms' }}
+          style={{ animationDelay: '60ms', fontFamily: "'Playfair Display', Georgia, serif" }}
         >
           <span className='text-[#111827]'>
-            {t('智算 API 网关')}
+            TokenHub
             <br />
           </span>
           <span
@@ -66,14 +66,14 @@ export function Hero(props: HeroProps) {
               backgroundClip: 'text',
             }}
           >
-            {t('AI Gateway Console')}
+            {t('AI 模型聚合网关')}
           </span>
         </h1>
         <p
           className='landing-animate-fade-up mt-5 max-w-xl text-base leading-relaxed text-[#6B7280] opacity-0 md:text-lg'
           style={{ animationDelay: '120ms' }}
         >
-          {systemName || t('AI Gateway Console')}{' '}
+          {systemName || 'TokenHub'}{' '}
           {t(
             '聚合 50+ AI 供应商，一个 API 端点管理所有模型。统一计费、精细限速、实时监控。'
           )}
@@ -101,7 +101,7 @@ export function Hero(props: HeroProps) {
                 asChild
               >
                 <Link to='/sign-up'>
-                  {t('免费开始使用')}
+                  {t('注册')}
                   <ArrowRight className='ml-1.5 size-4 transition-transform duration-200 group-hover:translate-x-0.5' />
                 </Link>
               </Button>
@@ -110,7 +110,7 @@ export function Hero(props: HeroProps) {
                 className='h-11 rounded-xl border-[#F3D7B5] bg-white/70 px-6 text-sm font-medium backdrop-blur-sm hover:border-[#FF6A00]/40 hover:bg-orange-50/60'
                 asChild
               >
-                <Link to='/pricing'>{t('查看价格')}</Link>
+                <Link to='/sign-in'>{t('登录')}</Link>
               </Button>
             </>
           )}

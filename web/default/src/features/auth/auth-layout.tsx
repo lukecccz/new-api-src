@@ -55,7 +55,7 @@ export function AuthLayout({ children }: AuthLayoutProps) {
           <Skeleton className='h-5 w-28' />
         ) : (
           <span className='text-sm font-semibold text-[#111827]'>
-            {systemName || t('AI Gateway Console')}
+            {systemName || 'TokenHub'}
           </span>
         )}
       </Link>

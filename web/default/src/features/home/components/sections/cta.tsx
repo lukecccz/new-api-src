@@ -54,7 +54,7 @@ export function CTA(props: CTAProps) {
           </span>
         </h2>
         <p className='mx-auto mt-5 max-w-md text-sm leading-relaxed text-[#6B7280] md:text-base'>
-          {t('免费开始，无需信用卡，慷慨额度，立即体验智算 API 网关的强大功能。')}
+          {t('免费开始，无需信用卡，慷慨额度，立即体验 TokenHub 的强大功能。')}
         </p>
         <div className='mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row'>
           <Button

@@ -151,7 +151,7 @@ export function Footer(props: FooterProps) {
               </span>
             </Link>
             <p className='mt-3 max-w-[200px] text-xs leading-relaxed text-[#6B7280]/70'>
-              {t('智算 API 网关 — 专业 AI 接入管理平台')}
+              TokenHub — {t('专业 AI 模型聚合网关')}
             </p>
           </div>
 

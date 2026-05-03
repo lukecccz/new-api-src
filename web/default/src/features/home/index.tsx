@@ -4,13 +4,12 @@ import { Markdown } from '@/components/ui/markdown'
 import { PublicLayout } from '@/components/layout'
 import { Footer } from '@/components/layout/components/footer'
 import {
-  ApiTemplates,
   CTA,
   ConsolePreview,
   Features,
   Hero,
   HowItWorks,
-  ModelShowcase,
+  ImagePromptTemplates,
   PricingPreview,
   Stats,
 } from './components'
@@ -57,10 +56,9 @@ export function Home() {
       <Hero isAuthenticated={isAuthenticated} />
       <Stats />
       <Features />
-      <ModelShowcase />
       <ConsolePreview />
       <HowItWorks />
-      <ApiTemplates />
+      <ImagePromptTemplates />
       <PricingPreview />
       <CTA isAuthenticated={isAuthenticated} />
       <Footer />
