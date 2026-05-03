@@ -2,6 +2,7 @@ import { useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useAuthStore } from '@/stores/auth-store'
 import { useStatus } from '@/hooks/use-status'
+import { SITE_CONFIG } from '@/config/site'
 
 export type TopNavLink = {
   title: string
@@ -16,7 +17,7 @@ const DEFAULT_HEADER_NAV_MODULES = {
   console: true,
   pricing: { enabled: true, requireAuth: false },
   docs: true,
-  about: true,
+  about: false, // hidden — no public About page currently
 }
 
 /**
@@ -74,17 +75,14 @@ export function useTopNavLinks(): TopNavLink[] {
     links.push({ title: t('Pricing'), href: '/pricing', disabled })
   }
 
-  // Docs (supports external links)
+  // Docs — backend docsLink takes priority; falls back to SITE_CONFIG.FEISHU_DOCS_URL
   if (modules?.docs !== false) {
-    if (docsLink) {
-      links.push({ title: t('Docs'), href: docsLink, external: true })
-    } else {
-      links.push({ title: t('Docs'), href: '/docs' })
-    }
+    const resolvedDocsHref = docsLink || SITE_CONFIG.FEISHU_DOCS_URL
+    links.push({ title: t('Docs'), href: resolvedDocsHref, external: true })
   }
 
-  // About
-  if (modules?.about !== false) {
+  // About — disabled by default (set about: true in DEFAULT_HEADER_NAV_MODULES to re-enable)
+  if (modules?.about === true) {
     links.push({ title: t('About'), href: '/about' })
   }
 

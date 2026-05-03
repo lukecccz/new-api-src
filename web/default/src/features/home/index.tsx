@@ -10,7 +10,6 @@ import {
   Hero,
   HowItWorks,
   ImagePromptTemplates,
-  PricingPreview,
   Stats,
 } from './components'
 import { useHomePageContent } from './hooks'
@@ -59,7 +58,6 @@ export function Home() {
       <ConsolePreview />
       <HowItWorks />
       <ImagePromptTemplates />
-      <PricingPreview />
       <CTA isAuthenticated={isAuthenticated} />
       <Footer />
     </PublicLayout>
