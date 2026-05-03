@@ -44,7 +44,7 @@ export function ConsolePreview() {
             </h2>
             <p className='mt-4 text-sm leading-relaxed text-[#6B7280]'>
               {t(
-                'TokenHub 提供完整的 SaaS 级管理界面，从渠道配置到用量分析，所有功能触手可及。'
+                'Routeon 提供完整的 SaaS 级管理界面，从渠道配置到用量分析，所有功能触手可及。'
               )}
             </p>
 
@@ -77,7 +77,7 @@ export function ConsolePreview() {
                 <div className='size-2.5 rounded-full bg-yellow-300' />
                 <div className='size-2.5 rounded-full bg-green-300' />
                 <div className='ml-3 flex-1 rounded-md border border-[#F3D7B5] bg-white/70 px-3 py-1 text-[10px] text-[#6B7280]'>
-                  app.aigateway.com/dashboard
+                  console.routeon.cc/dashboard
                 </div>
               </div>
 

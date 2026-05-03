@@ -40,7 +40,7 @@ export function CTA(props: CTAProps) {
           </div>
         </div>
         <h2 className='text-2xl font-bold leading-tight tracking-tight text-[#111827] md:text-4xl'>
-          {t('准备好简化')}
+          {t('准备好开始')}
           <br />
           <span
             style={{
@@ -50,11 +50,11 @@ export function CTA(props: CTAProps) {
               backgroundClip: 'text',
             }}
           >
-            {t('你的 AI 集成？')}
+            {t('稳定路由每一次 AI 调用？')}
           </span>
         </h2>
         <p className='mx-auto mt-5 max-w-md text-sm leading-relaxed text-[#6B7280] md:text-base'>
-          {t('免费开始，无需信用卡，慷慨额度，立即体验 TokenHub 的强大功能。')}
+          {t('免费开始，无需信用卡，慷慨额度，立即体验 Routeon 的稳定路由能力。')}
         </p>
         <div className='mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row'>
           <Button

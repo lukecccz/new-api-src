@@ -140,7 +140,7 @@ export function HeroTerminalDemo() {
               </span>{' '}
               <span className='text-blue-600 dark:text-blue-400'>-X POST</span>{' '}
               <span className='text-amber-600 dark:text-amber-400'>
-                &quot;/v1/chat/completions&quot;
+                &quot;https://api.routeon.cc/v1/chat/completions&quot;
               </span>
               {' \\\n'}
               <span className='text-foreground/15'>{'  '}</span>

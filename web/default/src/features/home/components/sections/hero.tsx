@@ -1,5 +1,5 @@
 import { Link } from '@tanstack/react-router'
-import { ArrowRight, Cpu, Zap } from 'lucide-react'
+import { ArrowRight, Cpu, Zap, Radio } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
 import { useSystemConfig } from '@/hooks/use-system-config'
 import { Button } from '@/components/ui/button'
@@ -44,8 +44,8 @@ export function Hero(props: HeroProps) {
         className='landing-animate-fade-up mb-6 flex items-center gap-2 rounded-full border border-[#F3D7B5] bg-white/70 px-4 py-1.5 text-xs font-medium shadow-sm backdrop-blur-sm'
         style={{ animationDelay: '0ms' }}
       >
-        <Zap className='size-3.5 text-[#FF6A00]' />
-        <span className='text-[#6B7280]'>{t('Powered by 50+ AI Providers')}</span>
+        <Radio className='size-3.5 text-[#FF6A00]' />
+        <span className='text-[#6B7280]'>Always On. Always Routed.</span>
       </div>
 
       <div className='flex max-w-3xl flex-col items-center text-center'>
@@ -54,7 +54,7 @@ export function Hero(props: HeroProps) {
           style={{ animationDelay: '60ms', fontFamily: "'Playfair Display', Georgia, serif" }}
         >
           <span className='text-[#111827]'>
-            TokenHub
+            {systemName || 'Routeon'}
             <br />
           </span>
           <span
@@ -66,17 +66,20 @@ export function Hero(props: HeroProps) {
               backgroundClip: 'text',
             }}
           >
-            {t('AI 模型聚合网关')}
+            {t('高性能 AI API 路由网关')}
           </span>
         </h1>
         <p
           className='landing-animate-fade-up mt-5 max-w-xl text-base leading-relaxed text-[#6B7280] opacity-0 md:text-lg'
           style={{ animationDelay: '120ms' }}
         >
-          {systemName || 'TokenHub'}{' '}
-          {t(
-            '聚合 50+ AI 供应商，一个 API 端点管理所有模型。统一计费、精细限速、实时监控。'
-          )}
+          {t('统一接入主流 AI 模型服务，为开发者和 AI 创业团队提供稳定、安全、可观测的 API 调用体验。')}
+        </p>
+        <p
+          className='landing-animate-fade-up mt-2 text-sm font-medium text-[#FF6A00] opacity-0'
+          style={{ animationDelay: '160ms' }}
+        >
+          {t('让每一次 AI 调用，稳定抵达。')}
         </p>
         <div
           className='landing-animate-fade-up mt-8 flex flex-wrap items-center justify-center gap-3 opacity-0'
@@ -116,15 +119,15 @@ export function Hero(props: HeroProps) {
           )}
         </div>
 
-        {/* Quick trust signals */}
+        {/* Trust signals */}
         <div
           className='landing-animate-fade-up mt-10 flex flex-wrap items-center justify-center gap-4 opacity-0'
           style={{ animationDelay: '300ms' }}
         >
           {[
             { icon: <Cpu className='size-3.5' />, text: t('OpenAI 兼容接口') },
-            { icon: <Zap className='size-3.5' />, text: t('毫秒级响应') },
-            { icon: <ArrowRight className='size-3.5' />, text: t('无需信用卡') },
+            { icon: <Zap className='size-3.5' />, text: t('智能路由调度') },
+            { icon: <Radio className='size-3.5' />, text: t('持续在线保障') },
           ].map((item) => (
             <div
               key={item.text}

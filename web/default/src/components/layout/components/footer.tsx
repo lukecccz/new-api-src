@@ -60,7 +60,7 @@ export function Footer(props: FooterProps) {
   } = useSystemConfig()
 
   const displayLogo = systemLogo || props.logo || '/logo.png'
-  const displayName = systemName || props.name || 'New API'
+  const displayName = systemName || props.name || 'Routeon'
   const isDemoSiteMode = Boolean(demoSiteEnabled)
   const currentYear = new Date().getFullYear()
 
@@ -150,8 +150,11 @@ export function Footer(props: FooterProps) {
                 {displayName}
               </span>
             </Link>
-            <p className='mt-3 max-w-[200px] text-xs leading-relaxed text-[#6B7280]/70'>
-              TokenHub — {t('专业 AI 模型聚合网关')}
+            <p className='mt-2 max-w-[220px] text-xs leading-relaxed text-[#6B7280]/70'>
+              {t('高性能 AI API 路由网关')}
+            </p>
+            <p className='mt-1 max-w-[220px] text-xs leading-relaxed text-[#FF6A00]/80'>
+              {t('让每一次 AI 调用，稳定抵达。')}
             </p>
           </div>
 
@@ -179,10 +182,9 @@ export function Footer(props: FooterProps) {
         {/* Bottom section */}
         <div className='mt-12 flex flex-col items-center justify-between gap-3 border-t border-[#F3D7B5]/60 pt-6 sm:flex-row'>
           <p className='text-xs text-[#6B7280]/50'>
-            &copy; {currentYear} {displayName}.{' '}
-            {props.copyright ?? t('footer.defaultCopyright')}
+            &copy; {currentYear} Routeon.{' '}
+            {props.copyright ?? t('版权所有。')}
           </p>
-          {/* "Designed and Developed by New API" intentionally hidden */}
         </div>
       </div>
     </footer>
